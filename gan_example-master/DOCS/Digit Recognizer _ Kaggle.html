@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digit Recognizer | Kaggle</title>
+    <meta charset="utf-8" />
+    <meta name="robots" content="index, follow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">    <meta name="theme-color" content="#008ABC" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" /><link rel="dns-prefetch" href="https://stats.g.doubleclick.net" /><link rel="dns-prefetch" href="https://js.intercomcdn.com" /><link rel="preload" href="https://az416426.vo.msecnd.net/scripts/a/ai.0.js" as=script /><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" as=script /><link rel="dns-prefetch" href="https://kaggle2.blob.core.windows.net" />
+    <link href="/content/v/d420a040e581/kaggle/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="manifest" href="/static/json/manifest.json">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic" rel='stylesheet' type='text/css'>
+                <link rel="stylesheet" type="text/css" href="/static/assets/vendor.css?v=72f4ef2ebe4f"/>
+        <link rel="stylesheet" type="text/css" href="/static/assets/app.css?v=50e63e9051de"/>
+        <script>
+            
+            (function () {
+                var originalError = window.onerror;
+
+                window.onerror = function (message, url, lineNumber, columnNumber, error) {
+                    var handled = originalError && originalError(message, url, lineNumber, columnNumber, error);
+                    var blockedByCors = message && message.toLowerCase().indexOf("script error") >= 0;
+                    return handled || blockedByCors;
+                };
+            })();
+        </script>
+    <script>
+        var appInsights=window.appInsights||function(config){
+        function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
+        }({
+            instrumentationKey:"5b3d6014-f021-4304-8366-3cf961d5b90f",
+            disableAjaxTracking: true
+        });
+        window.appInsights=appInsights;
+        appInsights.trackPageView();
+    </script>
+    
+    
+    
+ 
+    
+    <script>
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+    ga('create', 'UA-12629138-1', 'auto');
+    ga('set', 'displayFeaturesTask', null);
+    ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+    
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '136809193586742'); 
+    fbq('track', 'PageView');
+</script>
+<noscript>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=136809193586742&ev=PageView&noscript=1"/>
+</noscript>
+
+    
+
+    <script>
+          window.intercomSettings = {
+            app_id: "koj6gxx6"
+          };
+    </script>
+<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/koj6gxx6';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@kaggle" />
+        <meta name="twitter:creator" content="@kaggle" />
+    <meta name="og:url" content="https://www.kaggle.com/c/digit-recognizer" />
+    <meta name="og:title" content="Digit Recognizer" />
+    <meta name="og:description" content="Learn computer vision fundamentals with the famous MNIST data" />
+    <meta name="og:image" content="https://kaggle2.blob.core.windows.net/competitions/kaggle/3004/logos/thumb76_76.png" />
+
+
+    <script src="/static/assets/manifest.js?v=47a28ec84654"></script>
+<script src="/static/assets/vendor.js?v=afce63e62743"></script>
+</head>
+<body>
+    
+
+
+
+
+
+<div class="site-layout">
+        <div class="site-layout__header">
+            <div data-component-name="SiteHeaderContainer"></div><script>var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push({});performance && performance.mark && performance.mark("SiteHeaderContainer.componentCouldBootstrap");</script>
+        </div>
+
+    <div class="site-layout__main-content">
+        
+
+<div data-component-name="CompetitionContainer"></div><script>var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push({"activeTab":"data","competitionId":3004,"competitionType":"prediction","competitionTitle":"Digit Recognizer","briefDescription":"Learn computer vision fundamentals with the famous MNIST data","competitionHeaderImageUrl":"/static/images/competition-noimage.png","organizationId":4,"organizationName":"Kaggle","organizationSlug":"kaggle","organizationThumbnailUrl":"https://kaggle2.blob.core.windows.net/organizations/4/thumbnail.png","hasAcceptedRules":false,"pageMessages":[],"dateEnabled":"2012-07-25T20:43:30.087Z","deadline":"2020-01-07T00:00:00Z","mergerDeadline":"2020-01-07T00:00:00Z","newEntrantDeadline":null,"rewardQuantity":0.0000,"rewardTypeName":"Knowledge","totalTeams":1688,"hostSegment":"gettingStarted","canEdit":false,"overview":{"id":1990,"postId":66003,"content":"\u003ch3\u003eStart here if...\u003c/h3\u003e\n\u003cp\u003eYou have some experience with R or Python and machine learning basics, but you’re new to computer vision. This competition is the perfect introduction to techniques like neural networks using a classic dataset including pre-extracted features.\u003c/p\u003e\n\n\n\u003ch3\u003eCompetition Description\u003c/h3\u003e\n\u003cp\u003eMNIST (\u0022Modified National Institute of Standards and Technology\u0022) is the de facto “hello world” dataset of computer vision. Since its release in 1999, this classic dataset of handwritten images has served as the basis for benchmarking classification algorithms. As new machine learning techniques emerge, MNIST remains a reliable resource for researchers and learners alike.\u003c/p\u003e\n\u003cp\u003eIn this competition, your goal is to correctly identify digits from a dataset of tens of thousands of handwritten images. We’ve curated a set of tutorial-style kernels which cover everything from regression to neural networks. We encourage you to experiment with different algorithms to learn first-hand what works well and how techniques compare.\u003c/p\u003e\n\u003ch3\u003ePractice Skills\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eComputer vision fundamentals including simple neural networks\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eClassification methods such as SVM and K-nearest neighbors\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eAcknowledgements \u003c/h3\u003e\n\u003cp\u003eMore details about the dataset, including algorithms that have been tried on it and their levels of success, can be found at \u003ca href=\u0022http://yann.lecun.com/exdb/mnist/index.html\u0022 target=\u0022_blank\u0022\u003ehttp://yann.lecun.com/exdb/mnist/index.html\u003c/a\u003e. The dataset is made available under a \u003ca href=\u0022https://creativecommons.org/licenses/by-sa/3.0/\u0022 target=\u0022_blank\u0022\u003eCreative Commons Attribution-Share Alike 3.0 license\u003c/a\u003e.\u003c/p\u003e","mimeType":"text/html","name":"description","isPublished":false},"rules":{"id":1988,"postId":16179,"content":"\u003c!-- Begin Base Rules --\u003e\r\n\u003ch3\u003eOne account per participant\u003c/h3\u003e\r\n\u003cp\u003eYou cannot sign up to Kaggle from multiple accounts and therefore you cannot submit from multiple accounts.\u003c/p\u003e\r\n\u003ch3\u003eNo private sharing outside teams\u003c/h3\u003e\r\n\u003cp\u003ePrivately sharing code or data outside of teams is not permitted. It\u0027s okay to share code if made available to all participants on the forums.\u003c/p\u003e\r\n\u003ch3\u003eTeam Mergers\u003c/h3\u003e\r\n\u003cp\u003eTeam mergers are not allowed in this competition.\u003c/p\u003e\r\n\u003ch3\u003eTeam Limits\u003c/h3\u003e\r\n\u003cp\u003eThe maximum size of a team is 100 participants.\u003c/p\u003e\r\n\u003ch3\u003eSubmission Limits\u003c/h3\u003e\r\n\u003cp\u003eYou may submit a maximum of 5 entries per day.\u003c/p\u003e\r\n\u003cp\u003eYou may select up to 6 final submissions for judging.\u003c/p\u003e\r\n\u003ch3\u003eCompetition Timeline\u003c/h3\u003e\r\n\u003cp\u003eStart Date: \u003cstrong\u003e7/25/2012 8:43 PM UTC\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eMerger Deadline: \u003cstrong\u003eNone\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eEntry Deadline: \u003cstrong\u003eNone\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eEnd Date: \u003cstrong\u003e1/7/2020 12:00 AM UTC\u003c/strong\u003e\u003c/p\u003e\r\n\u003c!-- End Base Rules --\u003e","mimeType":"text/html","name":"rules","isPublished":false},"dataIntro":{"id":1989,"postId":16180,"content":"\u003cp\u003eThe data files train.csv and test.csv contain gray-scale images of hand-drawn digits, from zero through nine.\u003c/p\u003e\r\n\u003cp\u003eEach image is 28 pixels in height and 28 pixels in width, for a total of 784 pixels in total. Each pixel has a single pixel-value associated with it, indicating the lightness or darkness of that pixel, with higher numbers meaning darker. This pixel-value is an integer between 0 and 255, inclusive.\u003c/p\u003e\r\n\u003cp\u003eThe training data set, (train.csv), has 785 columns. The first column, called \u0022label\u0022, is the digit that was drawn by the user. The rest of the columns contain the pixel-values of the associated image.\u003c/p\u003e\r\n\u003cp\u003eEach pixel column in the training set has a name like pixelx, where x is an integer between 0 and 783, inclusive. To locate this pixel on the image, suppose that we have decomposed x as x = i * 28 + j, where i and j are integers between 0 and 27, inclusive. Then pixelx is located on row i and column j of a 28 x 28 matrix, (indexing by zero).\u003c/p\u003e\r\n\u003cp\u003eFor example, pixel31 indicates the pixel that is in the fourth column from the left, and the second row from the top, as in the ascii-diagram below.\u003c/p\u003e\r\n\u003cp\u003eVisually, if we omit the \u0022pixel\u0022 prefix, the pixels make up the image like this:\u003c/p\u003e\r\n\u003cpre\u003e000 001 002 003 ... 026 027\r\n028 029 030 031 ... 054 055\r\n056 057 058 059 ... 082 083\r\n |   |   |   |  ...  |   |\r\n728 729 730 731 ... 754 755\r\n756 757 758 759 ... 782 783 \r\n\u003c/pre\u003e\r\n\u003cp\u003eThe test data set, (test.csv), is the same as the training set, except that it does not contain the \u0022label\u0022 column.\u003c/p\u003e\r\n\u003cp\u003eYour submission file should be in the following format: For each of the 28000 images in the test set, output a single line containing the ImageId and the digit you predict. For example, if you predict that the first image is of a 3, the second image is of a 7, and the third image is of a 8, then your submission file would look like:\u003c/p\u003e\r\n\u003cpre\u003eImageId,Label\u003cbr /\u003e1,3\u003cbr /\u003e2,7\u003cbr /\u003e3,8 \r\n(27997 more lines)\u003c/pre\u003e\r\n\u003cp\u003eThe evaluation metric for this contest is the categorization accuracy, or the proportion of test images that are correctly classified. For example, a categorization accuracy of 0.97 indicates that you have correctly classified all but 3% of the images.\u003c/p\u003e","mimeType":"text/html","name":"data-description","isPublished":false},"evaluation":null,"prizes":null,"competitionSlug":"digit-recognizer","numPrizes":1,"leaderboardPercentage":25,"hasHeaderImage":false,"hasScripts":true,"acceptRulesUrl":"/c/digit-recognizer/rules/accept.json?doAccept=True","setFinalScoreSubmissionsUrl":"/c/digit-recognizer/submissions/final.json","updateSubmissionUrl":"/c/digit-recognizer/submissions/update.json","setTeamNameUrl":"/c/digit-recognizer/team/name.json","setLeaderUrl":"/c/digit-recognizer/team/leader.json","inviteToTeamUrl":"/c/digit-recognizer/team/invite.json","acceptInviteUrl":"/c/digit-recognizer/team/invite/accept.json","acceptTeamInviteUrl":"/c/digit-recognizer/team/merge/accept.json","rejectTeamInviteUrl":"/c/digit-recognizer/team/merge/reject.json","newScriptUrl":"/Scripts/NewScript?competitionId=3004","addImageUrl":null,"discussion":{"canDownvote":false,"dataUrl":"/forums/143/topics.json","id":143,"isRootLevel":false,"isSubscribed":false,"initialTopics":null,"paramValues":{"category":"all","kind":"all","page":1,"search":null,"group":"all","sortBy":"hot"}},"competitionThumbnailImageUrl":"https://kaggle2.blob.core.windows.net/competitions/kaggle/3004/logos/thumb76_76.png","competitionFrontPageImageUrl":"https://kaggle2.blob.core.windows.net/competitions/kaggle/3004/logos/front_page.png","submissionStatusUrl":"/c/digit-recognizer/submissions/status.json","isNewTopic":false,"newTopic":{"allowAttachments":false,"authorRanking":null,"authorTier":"novice","authorType":"topic","forumId":143,"parentName":"Digit Recognizer","parentUrl":"/c/digit-recognizer"},"numScoredSubmissions":6,"maxDailySubmissions":5,"maxDailySubmissionsResetDate":"2017-10-15T00:00:00Z","remainingDailySubmissions":null,"totalSolutionRows":28000,"team":null,"maxTeamSize":100,"topicId":null,"saveOverviewUrl":"/c/digit-recognizer/overview.json","saveRulesUrl":"/c/digit-recognizer/rules.json","saveDataUrl":"/c/digit-recognizer/data.json","totalCompetitors":1692,"totalEntries":0,"countsTowardsRanking":false,"countsTowardsTiers":false,"evaluationAlgorithm":{"id":14,"name":"Categorization Accuracy","description":"Percentage of correctly categorized items","submissionFileFormatId":null,"competitionId":null,"isMax":true},"disbandTeamUrl":"/c/digit-recognizer/team/disband.json","submissionUploadUrl":"/blobs/inbox/submissions","submissionSubmitUrl":"/c/digit-recognizer/submission.json","totalDiscussions":424,"totalKernels":0,"allowPrivateLeaderboardDisplay":false,"isCreatingCompetition":false,"pages":[{"id":1990,"postId":66003,"content":"\u003ch3\u003eStart here if...\u003c/h3\u003e\n\u003cp\u003eYou have some experience with R or Python and machine learning basics, but you’re new to computer vision. This competition is the perfect introduction to techniques like neural networks using a classic dataset including pre-extracted features.\u003c/p\u003e\n\n\n\u003ch3\u003eCompetition Description\u003c/h3\u003e\n\u003cp\u003eMNIST (\u0022Modified National Institute of Standards and Technology\u0022) is the de facto “hello world” dataset of computer vision. Since its release in 1999, this classic dataset of handwritten images has served as the basis for benchmarking classification algorithms. As new machine learning techniques emerge, MNIST remains a reliable resource for researchers and learners alike.\u003c/p\u003e\n\u003cp\u003eIn this competition, your goal is to correctly identify digits from a dataset of tens of thousands of handwritten images. We’ve curated a set of tutorial-style kernels which cover everything from regression to neural networks. We encourage you to experiment with different algorithms to learn first-hand what works well and how techniques compare.\u003c/p\u003e\n\u003ch3\u003ePractice Skills\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eComputer vision fundamentals including simple neural networks\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eClassification methods such as SVM and K-nearest neighbors\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eAcknowledgements \u003c/h3\u003e\n\u003cp\u003eMore details about the dataset, including algorithms that have been tried on it and their levels of success, can be found at \u003ca href=\u0022http://yann.lecun.com/exdb/mnist/index.html\u0022 target=\u0022_blank\u0022\u003ehttp://yann.lecun.com/exdb/mnist/index.html\u003c/a\u003e. The dataset is made available under a \u003ca href=\u0022https://creativecommons.org/licenses/by-sa/3.0/\u0022 target=\u0022_blank\u0022\u003eCreative Commons Attribution-Share Alike 3.0 license\u003c/a\u003e.\u003c/p\u003e","mimeType":"text/html","name":"description","isPublished":true},{"id":2398,"postId":65766,"content":"\u003ch3\u003eGoal\u003c/h3\u003e\nThe goal in this competition is to take an image of a handwritten single digit, and determine what that digit is.\u003cbr\u003eFor every \u003cvar\u003eImageId\u003c/var\u003e in the test set, you should predict the correct label. \n\n\u003ch3\u003eMetric\u003c/h3\u003e\n\u003cp\u003eThis competition is evaluated on the categorization accuracy of your predictions (the percentage of images you get correct).\u003c/p\u003e\n\n\u003ch3\u003eSubmission File Format\u003c/h3\u003e\n\u003cp\u003eThe file should contain a header and have the following format:\u003c/p\u003e\n\u003cpre\u003eImageId,Label\u003cbr /\u003e1,0\u003cbr /\u003e2,0\u003cbr /\u003e3,0\u003cbr /\u003eetc.\u003c/pre\u003e","mimeType":"text/html","name":"evaluation","isPublished":true},{"id":2054,"postId":65774,"content":"\u003ch3\u003eLearning with Kaggle Kernels\u003c/h3\u003e\n\u003cp\u003eKaggle Kernels is an in-browser computational environment that is fully integrated with most competition datasets. Kernels is preloaded with most data science packages and libraries. It supports scripts and Jupyter Notebooks in R and Python, as well as RMarkdown reports. You can create submission files with Kernels and also use it to explore the competition data.\u003c/p\u003e\n\u003cp\u003eTo get started with Kernels you can either:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eCreate a new script or notebook on the \u003ca href=\u0022https://www.kaggle.com/c/house-prices-advanced-regression-techniques/kernels\u0022 target=\u0022_blank\u0022 style=\u0022font-size: 1em;\u0022\u003eKernels\u003c/a\u003e\u003cspan style=\u0022font-size: 1em;\u0022\u003e tab or\u003c/span\u003e\u003c/li\u003e\n\u003cli\u003e“Fork” any kernel to create an editable copy for you to experiment with\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e\u003cb\u003eWe\u0027ve selected some of the best kernels to help you get started with the competition.\u003c/b\u003e You can use the below kernels to create a submission file or to explore the data. Simply open the script or notebook and click \u0022fork\u0022 to create an editable copy. \u003c/p\u003e\n\n\u003ch3\u003eGetting Started with Python\u003c/h3\u003e\n\n\u003ca href=\u0022https://www.kaggle.com/archaeocharlie/digit-recognizer/a-beginner-s-approach-to-classification\u0022 target=\u0022_target\u0022\u003e\u003cb\u003eA beginner’s approach to classification\u003c/b\u003e\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003eUses scikit-learn’s SVM to create a vector classifier\n\u003c/ul\u003e\n\n\u003ca href=\u0022https://www.kaggle.com/poonaml/digit-recognizer/deep-neural-network-keras-way\u0022 target=\u0022_target\u0022\u003e\u003cb\u003eDeep neural network the Keras way\u003c/b\u003e\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003eCovers pre-processing including feature standardization and one-hot encoding\n\u003cli\u003eImplements an artificial neural network approach using Keras\n\u003cli\u003eInspired by Jeremy Howard’s fast.ai deep learning MOOC\n\u003c/ul\u003e\n\n\u003ca href=\u0022https://www.kaggle.com/fchollet/digit-recognizer/simple-deep-mlp-with-keras/code\u0022 target=\u0022_target\u0022\u003e\u003cb\u003eSimple deep MLP with Keras\u003c/b\u003e\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003eA straightforward implementation of MLP (multi-layer perceptron) in Keras\n\u003cli\u003eLearn Keras from the author himself, Francois Chollet!\n\u003c/ul\u003e\n\n\u003ca href=\u0022https://www.kaggle.com/arthurtok/digit-recognizer/interactive-intro-to-dimensionality-reduction\u0022 target=\u0022_target\u0022\u003e\u003cb\u003eAn introduction to dimensionality reduction\u003c/b\u003e\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003eIntroduces and compares PCA, LDA, and t-SNE dimensionality reduction techniques\n\u003cli\u003eUses the Plotly library for intuitive, interactive visualizations\n\u003c/ul\u003e\n\n\u003ch3\u003e Getting Started with R\u003c/h3\u003e\n\n\u003ca href=\u0022https://www.kaggle.com/benhamner/digit-recognizer/random-forest-benchmark/code\u0022 target=\u0022_target\u0022\u003e\u003cb\u003eRandom forest benchmark\u003c/b\u003e\u003c/a\u003e\t\n\u003cul\u003e\n\u003cli\u003eA minimal example implementing the random forest algorithm\n\u003c/ul\u003e\n\n\u003ca href=\u0022https://www.kaggle.com/cnjn22/digit-recognizer/digit-recognizer\u0022 target=\u0022_target\u0022\u003e\u003cb\u003eDigit recognizer - PCA \u0026 SVM\u003c/b\u003e\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003eWalks through pre-preprocessing including dimensionality reduction with PCA\n\u003cli\u003eUses visualization to intuitively introduce the problem and ML concepts\n\u003cli\u003eBuilds a SVM classification model\n\u003c/ul\u003e\n\n\u003ca href=\u0022https://www.kaggle.com/russwill/digit-recognizer/build-your-own-neural-network-in-r\u0022 target=\u0022_target\u0022\u003e\u003cb\u003eBuild your own neural network in R\u003c/b\u003e\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003eImplements a simple 2-layer neural network from scratch\n\u003cli\u003eBased on the CS231n course offered by Stanford\n\u003c/ul\u003e\n\n\u003ca href=\u0022https://www.kaggle.com/olhacher/digit-recognizer/minimum-distance-classifier\u0022 target=\u0022_target\u0022\u003e\u003cb\u003eMinimum distance classifier\u003c/b\u003e\u003c/a\u003e\t\n\u003cul\u003e\n\u003cli\u003eUses minimum distance as a simple approach to classification\n\u003c/ul\u003e\n\n\u003ch3\u003eExternal Tutorials\u003c/h3\u003e\n\u003ca href=\u0022https://www.tensorflow.org/get_started/mnist/beginners\u0022 target=\u0022_blank\u0022\u003eFollow TensorFlow\u0027s Python tutorial\u003c/a\u003e on the MNIST datasets to get familiar with this popular deep learning library.\u003cbr\u003eIntended for people new to data science and machine learning. ","mimeType":"text/html","name":"tutorial","isPublished":true}],"files":[{"id":667,"name":"train.csv","description":null,"totalBytes":76775041,"url":"/c/digit-recognizer/download/train.csv","previewUrl":null,"supersededById":null},{"id":668,"name":"test.csv","description":null,"totalBytes":51118296,"url":"/c/digit-recognizer/download/test.csv","previewUrl":null,"supersededById":null},{"id":7580,"name":"sample_submission.csv","description":null,"totalBytes":240909,"url":"/c/digit-recognizer/download/sample_submission.csv","previewUrl":null,"supersededById":null}],"teamInboundMergeRequests":null,"teamOutboundMergeRequests":null,"leaderboardTeaser":[{"teamId":869985,"rank":1,"change":0,"medal":null,"teamName":"demobin","teamMembers":[{"profileUrl":"/demobin","thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/1226795-kg.jpg","tier":"novice","displayName":"demobin"}],"score":"1.00000","entries":2,"lastSubmission":"2017-08-26T06:05:44.27Z","sourceKernelName":null,"sourceKernelUrl":null},{"teamId":604167,"rank":2,"change":0,"medal":null,"teamName":"Chang TingYao","teamMembers":[{"profileUrl":"/cty02718","thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/default-thumb.png","tier":"novice","displayName":"Chang TingYao"}],"score":"1.00000","entries":2,"lastSubmission":"2017-08-26T07:34:57.5233333Z","sourceKernelName":null,"sourceKernelUrl":null},{"teamId":412540,"rank":3,"change":0,"medal":null,"teamName":"Srisailam Varakala","teamMembers":[{"profileUrl":"/srisialam","thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/796500-kg.jpg","tier":"contributor","displayName":"Srisailam Varakala"}],"score":"1.00000","entries":1,"lastSubmission":"2017-09-18T06:17:12.6433333Z","sourceKernelName":null,"sourceKernelUrl":null},{"teamId":530358,"rank":4,"change":0,"medal":null,"teamName":"Deep-DIT","teamMembers":[{"profileUrl":"/deepdit","thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/default-thumb.png","tier":"novice","displayName":"Deep-DIT"}],"score":"1.00000","entries":2,"lastSubmission":"2017-09-20T02:09:22.6766667Z","sourceKernelName":null,"sourceKernelUrl":null},{"teamId":641181,"rank":5,"change":0,"medal":null,"teamName":"Amorth","teamMembers":[{"profileUrl":"/amorth","thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/989579-kg.png","tier":"contributor","displayName":"Amorth"}],"score":"1.00000","entries":1,"lastSubmission":"2017-09-26T12:29:05.1366667Z","sourceKernelName":null,"sourceKernelUrl":null},{"teamId":372344,"rank":6,"change":null,"medal":null,"teamName":"linbo_iacas","teamMembers":[{"profileUrl":"/linbo2016","thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/default-thumb.png","tier":"novice","displayName":"linbo_casia"}],"score":"1.00000","entries":1,"lastSubmission":"2017-10-09T07:49:16.0633333Z","sourceKernelName":null,"sourceKernelUrl":null},{"teamId":852713,"rank":7,"change":-1,"medal":null,"teamName":"Allen Yeh","teamMembers":[{"profileUrl":"/allenhow","thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/1213935-kg.jpg","tier":"novice","displayName":"Allen Yeh"}],"score":"0.99985","entries":3,"lastSubmission":"2017-08-15T15:32:21.11Z","sourceKernelName":null,"sourceKernelUrl":null},{"teamId":835926,"rank":8,"change":-1,"medal":null,"teamName":"Aaron Sun","teamMembers":[{"profileUrl":"/aaronzs","thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/596472-kg.png","tier":"contributor","displayName":"Aaron Sun"}],"score":"0.99985","entries":5,"lastSubmission":"2017-09-16T22:51:07.0833333Z","sourceKernelName":null,"sourceKernelUrl":null}],"discussionTeaser":[{"title":"Simple deep MLP with Keras","itemUrl":"/c/digit-recognizer/discussion/25312#latest-231059","totalVotes":0,"totalReplies":8,"date":"2017-10-13T15:40:49.273Z","userDisplayName":"Tiago Martinho","userUrl":"/tiagomartinho"},{"title":"Interactive Intro to Dimensionality Reduction","itemUrl":"/c/digit-recognizer/discussion/28105#latest-230954","totalVotes":0,"totalReplies":70,"date":"2017-10-13T08:39:33.367Z","userDisplayName":"Ming Zhong","userUrl":"/zhongming"},{"title":"Tensorflow CNN - LB:0.98929","itemUrl":"/c/digit-recognizer/discussion/28750#latest-230765","totalVotes":0,"totalReplies":8,"date":"2017-10-12T18:13:02.317Z","userDisplayName":"Karthik Tsaliki","userUrl":"/karthik7395"},{"title":"Deep Neural Network Keras way","itemUrl":"/c/digit-recognizer/discussion/28893#latest-230683","totalVotes":0,"totalReplies":52,"date":"2017-10-12T13:22:57.667Z","userDisplayName":"GeekYoung","userUrl":"/dzzxjl"},{"title":"Deep Neural Network Keras way","itemUrl":"/c/digit-recognizer/discussion/32349#latest-230384","totalVotes":0,"totalReplies":2,"date":"2017-10-11T21:01:10.903Z","userDisplayName":"Sahil Rajesh Dhayalkar","userUrl":"/dhayalkarsahilr"}],"kernelTeaser":[{"title":"Random Forest and Neural Network model samples...","itemUrl":"/manojvijayan/random-forest-and-neural-network-model-samples","totalVotes":0,"totalReplies":0,"date":"2017-10-14T07:05:25.597Z","userDisplayName":"Manoj Vijayan","userUrl":"/manojvijayan"},{"title":"Interactive Intro to Dimensionality Reduction","itemUrl":"/arthurtok/interactive-intro-to-dimensionality-reduction","totalVotes":251,"totalReplies":0,"date":"2017-10-12T19:13:09.193Z","userDisplayName":"Anisotropic","userUrl":"/arthurtok"},{"title":"NEURAL NETWORK USING SGD 0.9897","itemUrl":"/jcodogno/neural-network-using-sgd-0-9897","totalVotes":26,"totalReplies":0,"date":"2017-10-13T14:46:38.293Z","userDisplayName":"Jean Carlo Codogno","userUrl":"/jcodogno"},{"title":"TensorFlow deep NN","itemUrl":"/kakauandme/tensorflow-deep-nn","totalVotes":394,"totalReplies":0,"date":"2016-02-23T04:33:52.627Z","userDisplayName":"Kirill Kliavin","userUrl":"/kakauandme"},{"title":"Deep Neural Network Keras way","itemUrl":"/poonaml/deep-neural-network-keras-way","totalVotes":131,"totalReplies":0,"date":"2017-05-26T06:12:23.157Z","userDisplayName":"Poonam Ligade","userUrl":"/poonaml"}],"datasetVersions":[],"submissionsAreDisabled":false,"hasLeaderboard":true,"finalLeaderboardHasBeenVerified":false,"witholdFinalLeaderboardUntilItHasBeenVerified":false,"isPrivate":false,"publicLeaderboardMessage":null,"privateLeaderboardMessage":null,"disablePrizeIndicator":false,"hasKernels":true,"hasKernelsEnabled":true,"hasHostEnabled":false,"benchmarks":null,"totalSolutionColumns":3,"hasSolutionFile":true,"hasSampleSubmissionFile":true,"userRankMultiplier":0.0,"solutionUploadUrl":null,"submissionDetailsUpdateUrl":null,"submissionDeleteUrl":null,"benchmarkSubmitUrl":null,"needsPhoneVerification":false,"scoringIsMax":true,"rawDataUrl":"/c/3004/publicleaderboarddata.zip","canSubmitModel":false,"privateLeaderboardIsPublic":false,"acceptModelUrl":"/c/digit-recognizer/team/model/upload.json","modelFile":null,"newNotebookUrl":"/Scripts/NewNotebook?competitionId=3004","finalSubmissionIds":[],"mySubmissionsCount":null,"submissionsPage":1,"submissionsSortBy":"date","submissionsGroup":"all","mostRecentSubmissionStatus":null,"isCompetitionHost":false,"allowAnonymousTeams":false,"allowTeamMergers":false,"hostSegments":[],"hostSegmentTitle":"Getting Started","canParticipate":false,"privacyOptions":[{"value":"public","label":"Public"},{"value":"limited","label":"Limited"},{"value":"private","label":"Private"}],"isCompetitionPending":false,"isCompetitionEnded":false,"competitionHasLaunched":true,"competitionHasEnded":false,"canSeeNewWorldInClassCreation":true,"shareToken":null,"competitionPrivacy":"public","ownerTwitter":"kaggle","externalCompetitionThumbnailImageUrl":"https://kaggle2.blob.core.windows.net/competitions/kaggle/3004/logos/thumb76_76.png","competitionUrl":"/c/digit-recognizer","mergerDeadlineHasPassed":false,"categories":{"categories":[{"id":14101,"name":"tabular","fullPath":"data type \u003e tabular","listingUrl":"/competitions?sortBy=relevance\u0026group=all\u0026search=tag%3A%27tabular%27","description":null,"isInherited":false,"datasetCount":0,"competitionCount":63,"scriptCount":0,"totalCount":63},{"id":14102,"name":"image","fullPath":"data type \u003e image","listingUrl":"/competitions?sortBy=relevance\u0026group=all\u0026search=tag%3A%27image%27","description":null,"isInherited":false,"datasetCount":0,"competitionCount":33,"scriptCount":0,"totalCount":33},{"id":14202,"name":"multiclass classification","fullPath":"problem type \u003e multiclass classification","listingUrl":"/competitions?sortBy=relevance\u0026group=all\u0026search=tag%3A%27multiclass classification%27","description":null,"isInherited":false,"datasetCount":0,"competitionCount":28,"scriptCount":0,"totalCount":28},{"id":14213,"name":"object identification","fullPath":"problem type \u003e object identification","listingUrl":"/competitions?sortBy=relevance\u0026group=all\u0026search=tag%3A%27object identification%27","description":null,"isInherited":false,"datasetCount":0,"competitionCount":7,"scriptCount":0,"totalCount":7},{"id":null,"name":"categorizationaccuracy","fullPath":null,"listingUrl":null,"description":"Percentage of correctly categorized items","isInherited":true,"datasetCount":0,"competitionCount":0,"scriptCount":0,"totalCount":0},{"id":null,"name":"small","fullPath":null,"listingUrl":null,"description":"Competition data: small (50MB to 500MB)","isInherited":true,"datasetCount":0,"competitionCount":0,"scriptCount":0,"totalCount":0}],"type":"competition"}});performance && performance.mark && performance.mark("CompetitionContainer.componentCouldBootstrap");</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            preferredFont: "TeX",
+            availableFonts: ["STIX", "TeX"],
+            linebreaks: {
+                automatic: true
+            },
+            EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+        },
+        tex2jax: {
+            inlineMath: [["\\(", "\\)"], ["\\\\(", "\\\\)"]],
+            displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+            processEscapes: true,
+            ignoreClass: "tex2jax_ignore|dno"
+        },
+        TeX: {
+            noUndefined: {
+                attributes: {
+                    mathcolor: "red",
+                    mathbackground: "#FFEEEE",
+                    mathsize: "90%"
+                }
+            }
+        },
+        Macros: {
+            href: "{}"
+        },
+        skipStartupTypeset: true,
+        messageStyle: "none"
+    });
+</script>
+
+<script type="text/javascript" async crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+    </div>
+
+        <div class="site-layout__footer">
+            <footer class="site-footer">
+    <div class="site-footer__content">
+        <div class="site-footer__copyright">
+            <span>&copy; 2017 Kaggle Inc</span>
+        </div>
+        <nav class="site-footer__nav">
+            <a href="/team">Our Team</a>
+            <a href="/terms">Terms</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/contact">Contact/Support</a>
+        </nav>
+        <nav class="site-footer__social">
+            <div data-component-name="SocialIcons"></div><script>var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push();performance && performance.mark && performance.mark("SocialIcons.componentCouldBootstrap");</script>
+        </nav>
+    </div>
+</footer>
+
+        </div>
+</div>
+
+
+
+<script type="text/javascript">
+    var Kaggle = Kaggle || {};
+
+    Kaggle.Current = {
+        hasJupyterNotebookEditor: true,
+        hasEnvironmentVariables: false,
+        hasInteractiveScripts: false,
+        hasStandaloneKernelProxy: false,
+        antiForgeryToken: '8vjmlH41E1NtZydul48As0JPK3A7a7JjJP1e17WnmN2lHOo7p8gE2qOwzE1Nrl458kmgO__UEYNkCY2n25z0DGF2yGQ1',
+        isAnonymous: true,
+        isFullScreen: false,
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+        Kaggle.Current.log = function(){};
+        Kaggle.Current.warn = function(){};
+</script>
+
+
+
+
+
+<script type="text/javascript">
+    var Kaggle = Kaggle || {};
+    Kaggle.PageMessages = [];
+</script>
+
+
+<script src="/content/v/5dbea6ee9ce1/shared/js/kaggle.prism.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+    <script src="/static/assets/app.js?v=ad28bc6e3813"></script>
+    
+        <script>
+            (function() {
+                if ('serviceWorker' in navigator) {
+                    
+                    navigator.serviceWorker.register("/static/assets/service-worker.js").then(function(reg) {
+                        
+                        reg.onupdatefound = function() {
+                            
+                            var installingWorker = reg.installing;
+                            installingWorker.onstatechange = function() {
+                                switch (installingWorker.state) {
+                                case 'installed':
+                                    if (navigator.serviceWorker.controller) {
+                                        
+                                        console.log('New or updated content is available.');
+                                    } else {
+                                        
+                                        console.log('Content is now available offline!');
+                                    }
+                                    break;
+                                case 'redundant':
+                                    console.error('The installing service worker became redundant.');
+                                    break;
+                                }
+                            };
+                        };
+                    }).catch(function(e) {
+                      console.error('Error during service worker registration:', e);
+                    });
+                }
+            })();
+        </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+===========================================================================================
+
+JB_INSTAL_MXNET.Rmd
+
+mxnet_0.10.1
+
+For more documents, please visit http://mxnet.io
+
+E:\MIJN DATA SCIENCE\_MIJN DATA SCIENCE PROJECTS\_R\GAN\GAN_EXAMPLE_R\gan_example-master
+
+Creation Date: 16-10-2017
+Last Edited  : 16-10-2017
+
+Installing MXNET (MXNet: A Flexible and Efficient Machine Learning Library for Heterogeneous Distributed Systems)
+
+https://mxnet.incubator.apache.org/get_started/install.html
+
+
+Installing MXNet¶
+
+Indicate your preferred configuration. Then, follow the customized commands to install MXNet.
+
+1) Windows, R, CPU
+
+The CPU version of MXNet R package can be installed in R like other packages
+
+cran <- getOption("repos")
+cran["dmlc"] <- "https://s3-us-west-2.amazonaws.com/apache-mxnet/R/CRAN/"
+options(repos = cran)
+install.packages("mxnet")
+
+===========================================================================================
+
+
+```{r}
+cran <- getOption("repos")
+cran["dmlc"] <- "https://s3-us-west-2.amazonaws.com/apache-mxnet/R/CRAN/"
+options(repos = cran)
+install.packages("mxnet") #MXNet: A Flexible and Efficient Machine Learning Library for Heterogeneous Distributed Systems
+```
+
+
+
+Validate MXNet Installation
+
+Run a short MXNet R program to create a 2X3 matrix of ones a on a GPU, multiply each element in the matrix by 2 followed by adding 1. We expect the output to be a 2X3 matrix with all elements being 3. We use mx.gpu(), to set MXNet context to be GPUs.
+
+library(mxnet)
+a <- mx.nd.ones(c(2,3), ctx = mx.gpu())
+b <- a * 2 + 1
+b
+
+
+```{r}
+library(mxnet)  # For more documents, please visit http://mxnet.io
+#a <- mx.nd.ones(c(2,3), ctx = mx.gpu())
+a <- mx.nd.ones(c(2,3), ctx = mx.cpu())
+b <- a * 2 + 1
+b
+```
+
+===========================================================================================
+
+```{r}
+demo(package = "mxnet")
+```
+
+Demos in package ‘mxnet’:
+
+basic_bench                Basic benchmark
+basic_executor             Basic executor operations
+basic_kvstore              Basic kvstore operations
+basic_model                Basic model operations
+basic_ndarray              Basic ndarray operations
+basic_random               Basic random number generators
+basic_symbol               Basic symbol operations
+
+
+```{r}
+demo(basic_bench, package = "mxnet")
+```
+
+
+```{r}
+demo(basic_executor, package = "mxnet")
+```
+
+
+
+```{r}
+demo(basic_kvstore, package = "mxnet")
+```
+
+
+
+```{r}
+demo(basic_model, package = "mxnet")
+```
+
+```{r}
+ls()
+dir()
+dir("C:/Users/Rinus/AppData/Local/Temp/Rtmpiwd8Me")
+```
+
+
+
+
+
+```{r}
+demo(basic_ndarray, package = "mxnet")
+```
+
+
+
+
+```{r}
+demo(basic_random, package = "mxnet")
+```
+
+
+
+
+```{r}
+demo(basic_symbol, package = "mxnet")
+```
+
+
+
+===========================================================================================
+===========================================================================================
