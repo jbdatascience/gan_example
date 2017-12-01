@@ -1,0 +1,83 @@
+﻿GAN_EXAMPLE_R.txt
+
+17-10-2017
+
+ACER-PC (Op de HP ProBook laptop crasht deze toepassing !):
+H:\MIJN DATA SCIENCE\_MIJN DATA SCIENCE PROJECTS\_R\GAN\GAN_EXAMPLE_R\GAN_EXAMPLE_R.txt
+
+RStudio project: gan_example_master
+
+Deze toepassing werkt technisch correct op de ACER PC (8 cores, 16 GB RAM)
+
+
+BACKUP:
+Google Drive
+Account tvscitechtalk@gmail.com
+https://drive.google.com/open?id=0B3jTYhZnIIveRjZuSndSX0xlOXM
+
+
+https://github.com/jeremiedb/gan_example
+
+FORKED TO
+https://github.com/jbdatascience/gan_example
+1-12-2017
+
+For more documents, please visit http://mxnet.io
+
+HP Probook laptop:
+E:\MIJN DATA SCIENCE\_MIJN DATA SCIENCE PROJECTS\_R\GAN\GAN_EXAMPLE_R
+
+https://www.evernote.com/shard/s313/nl/41973486/0e03b354-b2bc-43dd-a1ba-4ec49129d2c5
+
+https://www.evernote.com/shard/s313/nl/41973486/8101bd52-b935-4561-9849-397044799aa2
+
+
+
+--------------------------------------------------------------------------
+
+Installing MXNET
+https://mxnet.incubator.apache.org/get_started/install.html
+
+
+Installing MXNet¶
+
+Indicate your preferred configuration. Then, follow the customized commands to install MXNet.
+
+1) Windows, R, CPU
+
+The CPU version of MXNet R package can be installed in R like other packages
+
+cran <- getOption("repos")
+cran["dmlc"] <- "https://s3-us-west-2.amazonaws.com/apache-mxnet/R/CRAN/"
+options(repos = cran)
+install.packages("mxnet")
+
+
+
+2) Windows, R, GPU
+
+The GPU version of MXNet R package can be installed in R like other packages
+
+cran <- getOption("repos")
+cran["dmlc"] <- "https://s3-us-west-2.amazonaws.com/apache-mxnet/R/CRAN/GPU"
+options(repos = cran)
+install.packages("mxnet")
+
+
+
+Alternatively, You can also follow the installation instructions in this guide to build MXNet from source.
+https://mxnet.incubator.apache.org/get_started/windows_setup.html
+
+
+
+Validate MXNet Installation
+
+Run a short MXNet R program to create a 2X3 matrix of ones a on a GPU, multiply each element in the matrix by 2 followed by adding 1. We expect the output to be a 2X3 matrix with all elements being 3. We use mx.gpu(), to set MXNet context to be GPUs.
+
+library(mxnet)
+a <- mx.nd.ones(c(2,3), ctx = mx.gpu())
+b <- a * 2 + 1
+b
+
+
+--------------------------------------------------------------------------
